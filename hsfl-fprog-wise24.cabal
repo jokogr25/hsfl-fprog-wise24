@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      FP_Aufgaben_02.FP02
       Lib
   other-modules:
       Paths_hsfl_fprog_wise24
