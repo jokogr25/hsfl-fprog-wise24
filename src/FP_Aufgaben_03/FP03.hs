@@ -37,6 +37,13 @@ umrechnen betrag =
             muenzen
         )
 
+ausgabe :: [(Int, Int)] -> [(Int, Int)]
+ausgabe [] = []
+ausgabe ((anzahl, muenze) : xs) =
+  if anzahl > 0
+    then (anzahl, muenze) : ausgabe xs
+    else ausgabe xs
+
 -- | betrag >= 200 =(betrag `div` 200,200) : umrechnen (betrag `mod` 200)
 -- | betrag >= 100 =(betrag `div` 100,100) : umrechnen (betrag `mod` 100)
 -- | betrag >= 50 =(betrag `div` 50,50) : umrechnen (betrag `mod` 50)
@@ -45,3 +52,13 @@ umrechnen betrag =
 -- | betrag >= 5 =(betrag `div` 5,5) : umrechnen (betrag `mod` 5)
 -- | betrag >= 2 =(betrag `div` 2,2) : umrechnen (betrag `mod` 2)
 -- | betrag >= 1 =(betrag `div` 1,1) : umrechnen (betrag `mod` 1)
+
+-- Aufgabe 5
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib x = fib (x - 1) + fib (x - 2)
+
+fibListe :: Int -> [Int]
+fibListe 0 = []
+fibListe x = fibListe (x - 1) ++ [fib x]
