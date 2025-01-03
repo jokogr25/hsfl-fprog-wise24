@@ -7,6 +7,17 @@ where
 f1 :: (Double, Char) -> [(Double, Char)]
 f1 x = x : [(1.3, 'a')]
 
+-- Aufgabe 2
+-- diese Funktion ist fehlerhaft, da sich der Rückgabetyp der Pattern unterscheidet:
+-- im ersten Pattern wird geprüft, ob der erste Parameter eine 0 ist und dann wird eine leere Liste zurückgegeben
+-- im zweiten Pattern wird der zweite Parameter auf 1 geprüft und dann der erste Parameter (x) zuückgegeben - dieser wurde im ersten Pattern aber bereits als Int (bzw. Num) definiert und kann nicht als Rückgabetyp Liste dienen
+
+-- Aufgabe 3
+addListen :: [Int] -> [Int] -> [Int]
+addListen [] ys = ys
+addListen xs [] = xs
+addListen (x : xs) (y : ys) = (x + y) : addListen xs ys
+
 -- Aufgabe 4
 umrechnen :: Int -> [(Int, Int)]
 umrechnen betrag =
