@@ -44,3 +44,7 @@ reverseIntList = reverseIntList' []
 -- --> reverseIntList' (3 : [2,1]) []
 -- --> reverseIntList' [3,2,1] []
 -- --> [3,2,1]
+
+-- Aufgabe 4
+f :: Int -> Int
+f n = foldr (\b a -> a + (b * b)) 0 [1 .. n]
