@@ -46,5 +46,33 @@ reverseIntList = reverseIntList' []
 -- --> [3,2,1]
 
 -- Aufgabe 4
+-- da eine Summe berechnet werden soll, ist der Startwert des Akkumulators 0
 f :: Int -> Int
 f n = foldr (\b a -> a + (b * b)) 0 [1 .. n]
+
+-- Aufgabe 5
+liste :: [(Integer, [(String, Double)])]
+liste =
+  [ ( 1,
+      [ ("FPROG", 2.0),
+        ("ELM", 3.0),
+        ("OOP", 1.7)
+      ]
+    ),
+    ( 2,
+      [ ("FPROG", 5.0),
+        ("ELM", 4.0),
+        ("OOP", 2.3)
+      ]
+    )
+  ]
+
+gibNotenkonto :: Integer -> [(Integer, [(String, Double)])] -> [(String, Double)]
+gibNotenkonto _ [] = error "Matrikelnummer nicht vorhanden"
+gibNotenkonto matrikelNummer ((mNr, noten) : xs)
+  | matrikelNummer == mNr = noten
+  | otherwise = gibNotenkonto matrikelNummer xs
+
+bestanden :: [(String, Double)] -> Int
+bestanden [] = 0
+bestanden ((_, note) : xs) = (if note <= 4.0 then 1 else 0) + bestanden xs
