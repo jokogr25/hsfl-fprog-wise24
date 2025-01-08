@@ -30,6 +30,7 @@ library
       FP_Aufgaben_04.FP04
       FP_Aufgaben_05.FP05
       FP_Aufgaben_07.FP07
+      FP_Aufgaben_11.FP11
       Lib
   other-modules:
       Paths_hsfl_fprog_wise24
